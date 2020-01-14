@@ -8,19 +8,20 @@ import javax.persistence.Id;
 @Entity
 public class AustralianPostCode {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String  postcode;
     private String suburb;
     private String state;
     private Double latitude;
     private Double longitude;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
