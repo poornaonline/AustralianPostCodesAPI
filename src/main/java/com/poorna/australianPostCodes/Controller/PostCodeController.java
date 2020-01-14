@@ -31,7 +31,7 @@ public class PostCodeController {
     @GetMapping("/json")
     public List<AustralianPostCode> getPostCodesFromJson() {
 
-        ArrayList<AustralianPostCode> postCodes = new ArrayList<>();
+        ArrayList<AustralianPostCode> postCodesArray = new ArrayList<>();
 
         try {
 
@@ -49,6 +49,13 @@ public class PostCodeController {
                 Double latitude = (Double) postCode.get("latitude");
                 Double longitude = (Double) postCode.get("longitude");
 
+                // Change postcode length to 4 characters if the post code length is 3
+                if (postcode.length() == 3) {
+                    System.out.println("Initial post code      -> " + postcode);
+                    postcode = "0" + postcode;
+                    System.out.println("After change post code -> " + postcode);
+                }
+
                 AustralianPostCode ausPostCode = new AustralianPostCode();
 
                 ausPostCode.setId(id);
@@ -58,11 +65,11 @@ public class PostCodeController {
                 ausPostCode.setLatitude(latitude);
                 ausPostCode.setLongitude(longitude);
 
-                postCodes.add(ausPostCode);
+                postCodesArray.add(ausPostCode);
             }
         } catch (Exception e) {
             System.err.println(e.getLocalizedMessage());
         }
-        return postCodes;
+        return postCodesArray;
     }
 }
