@@ -1,4 +1,4 @@
-package com.poorna.australianPostCodes;
+package com.poorna.australianPostCodes.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

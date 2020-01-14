@@ -1,11 +1,12 @@
-package com.poorna.australianPostCodes;
+package com.poorna.australianPostCodes.Controller;
 
+import com.poorna.australianPostCodes.Entity.AustralianPostCode;
+import com.poorna.australianPostCodes.Service.AustraliaPostCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,10 +15,10 @@ import java.util.List;
 public class PostCodeController {
 
     @Autowired
-    private AustraliaPostCodeRepository australiaPostCodeRepository;
+    private AustraliaPostCodeService australiaPostCodeService;
 
     @GetMapping("/")
     public List<AustralianPostCode> getPostCodes() {
-        return (List<AustralianPostCode>) australiaPostCodeRepository.findAll();
+        return australiaPostCodeService.getAllPostCodes();
     }
 }
